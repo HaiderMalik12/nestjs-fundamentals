@@ -1,0 +1,33 @@
+enum Status {
+  NEW
+  RELEASED
+  FAILED
+}
+type Owner {
+  _id: ID!
+  name: String!
+}
+
+type Product {
+  _id: ID
+  name: String!
+  qty: Int
+  owner: Owner!
+  status: Status
+}
+
+type Query {
+  product(_id: ID): Product!
+  products: [Product]!
+}
+input ProductInput {
+  name: String!
+  qty: Int
+  status: Status
+}
+
+type Mutation {
+  createProduct(input: ProductInput!): Product!
+  updateProduct(_id: ID!, input: ProductInput!): Product!
+  deleteProduct(_id: ID!): Product!
+}

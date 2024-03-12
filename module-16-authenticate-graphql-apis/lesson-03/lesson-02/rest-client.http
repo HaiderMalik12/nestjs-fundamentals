@@ -1,0 +1,81 @@
+GET http://localhost:3000
+
+### SEND FETCH SONGS REQUEST
+GET http://localhost:3000/songs/?page=1&limit=2
+
+### Find SONGS REQUEST
+GET http://localhost:3000/songs/1
+
+### Create New SONGS REQUEST
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+"title": "You for me 3",
+"artists": [1,2],
+"releasedDate" : "2023-05-11",
+"duration" :"02:34",
+"lyrics": "Sby, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+
+
+### Update SONGS REQUEST
+PUT http://localhost:3000/songs/2
+Content-Type: application/json
+
+{
+"title": "Animals",
+"artists": [
+    "Martin"
+],
+"releasedDate" : "2023-02-02",
+"duration" :"03:43",
+"lyrics": "ANIM, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+
+### Update SONGS REQUEST
+DELETE http://localhost:3000/songs/1
+
+
+### Create new PlayList
+
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+    "name": "Feel Good Now",
+    "songs": [
+        6
+    ],
+    "user": 2
+}
+
+### Signup User
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "firstName": "john",
+    "lastName": "doe",
+    "email": "john12@gmail.com",
+    "password": "123456"
+}
+
+### Login User
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "john12@gmail.com",
+    "password": "123456"
+}
+
+## Access TOKEN : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBnbWFpbC5jb20iLCJzdWIiOjEsImlhdCI6MTY4NDg1NTYyMSwiZXhwIjoxNjg0OTQyMDIxfQ.4FAABSVzS_6NUAjldhn7-EZ0UbAUUfKgGZ0Qv4tma7M
+
+### Profile
+
+GET http://localhost:3000/profile
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBnbWFpbC5jb20iLCJzdWIiOjEsImlhdCI6MTY4NDg1NTYyMSwiZXhwIjoxNjg0OTQyMDIxfQ.4FAABSVzS_6NUAjldhn7-EZ0UbAUUfKgGZ0Qv4tma7M
+

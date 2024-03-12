@@ -1,0 +1,8 @@
+### FIND USER ON THE BASED ON ID
+GET http://localhost:3000/user/1
+
+### TEST COOKIE PARSER
+GET http://localhost:3000/set-cookie
+
+### GET COOKIE
+GET  http://localhost:3000/get-cookie

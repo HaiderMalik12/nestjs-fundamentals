@@ -1,0 +1,133 @@
+GET http://localhost:3000
+
+### SEND FETCH SONGS REQUEST
+GET http://localhost:3000/songs/?page=1&limit=2
+
+### Find SONGS REQUEST
+GET http://localhost:3000/songs/1
+
+### Create New SONGS REQUEST
+POST http://localhost:3000/songs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpbmdhcnJpeEBnbWFpbC5jb20iLCJ1c2VySWQiOjIsImFydGlzdElkIjoxLCJpYXQiOjE2ODQ5MDkxMTMsImV4cCI6MTY4NDk5NTUxM30.u7vwcccTXkbMIZvg1k0ZOA_dD1TvzZRDbO6xm8w23Bc
+
+{
+"title": "Love again",
+"artists": [1],
+"releasedDate" : "2023-05-11",
+"duration" :"02:34",
+"lyrics": "Sby, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+
+
+### Update SONGS REQUEST
+PUT http://localhost:3000/songs/2
+Content-Type: application/json
+
+{
+"title": "Animals",
+"artists": [
+    "Martin"
+],
+"releasedDate" : "2023-02-02",
+"duration" :"03:43",
+"lyrics": "ANIM, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+
+### Update SONGS REQUEST
+DELETE http://localhost:3000/songs/1
+
+
+### Create new PlayList
+
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+    "name": "Feel Good Now",
+    "songs": [
+        6
+    ],
+    "user": 2
+}
+
+### Signup User
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "firstName": "john",
+    "lastName": "doe",
+    "email": "john13@gmail.com",
+    "password": "123456"
+}
+
+### API KEY JOHN13 TEMP : 17838da8-99a7-443f-89fa-ba7338581ee0
+
+### Signup Artist
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "firstName": "Martin",
+    "lastName": "Garrix",
+    "email": "martingarrix@gmail.com",
+    "password": "123456"
+}
+
+### Login Artist
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "martingarrix1@gmail.com",
+    "password": "123456"
+}
+
+### Artist Token Temp:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpbmdhcnJpeEBnbWFpbC5jb20iLCJ1c2VySWQiOjIsImFydGlzdElkIjoxLCJpYXQiOjE2ODQ5MDkxMTMsImV4cCI6MTY4NDk5NTUxM30.u7vwcccTXkbMIZvg1k0ZOA_dD1TvzZRDbO6xm8w23Bc
+
+### Login User
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "john12@gmail.com",
+    "password": "123456"
+}
+
+## Access TOKEN : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBnbWFpbC5jb20iLCJzdWIiOjEsImlhdCI6MTY4NDg1NTYyMSwiZXhwIjoxNjg0OTQyMDIxfQ.4FAABSVzS_6NUAjldhn7-EZ0UbAUUfKgGZ0Qv4tma7M
+
+### Profile
+
+GET http://localhost:3000/profile
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpbmdhcnJpeEBnbWFpbC5jb20iLCJ1c2VySWQiOjIsImFydGlzdElkIjoxLCJpYXQiOjE2ODQ5MDkwNzIsImV4cCI6MTY4NDk5NTQ3Mn0.wYEhyDMor-bs2_Ghmcno0mEJqkqkP9XwOrKUDf0YAZc
+
+### Enable 2FA
+GET http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTY4NDkxMTk3OCwiZXhwIjoxNjg0OTk4Mzc4fQ.qbBHZfu0VL_tY_bC2ccl1I_Xoc0IqG6wAk-D2-tZDa8
+
+### Validate 2FA Token
+POST http://localhost:3000/auth/validate-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTY4NDkxMTk3OCwiZXhwIjoxNjg0OTk4Mzc4fQ.qbBHZfu0VL_tY_bC2ccl1I_Xoc0IqG6wAk-D2-tZDa8
+Content-Type: application/json
+
+{
+    "token": "993913"
+}
+
+### Disable 2FA
+GET http://localhost:3000/auth/disable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBnbWFpbC5jb20iLCJ1c2VySWQiOjEsImlhdCI6MTY4NDkxMTk3OCwiZXhwIjoxNjg0OTk4Mzc4fQ.qbBHZfu0VL_tY_bC2ccl1I_Xoc0IqG6wAk-D2-tZDa8
+
+
+### Access Profile
+GET http://localhost:3000/auth/profile
+Authorization: Bearer 17838da8-99a7-443f-89fa-ba7338581ee0
+
+### Test Env
+
+GET http://localhost:3000/auth/test

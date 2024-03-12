@@ -1,0 +1,28 @@
+### Create Song
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+    "title" : "LOVER ON THE SUN"
+}
+
+### FETCH ALL SONGS
+
+GET http://localhost:3000/songs
+
+
+### FETCH SONG BY ID
+GET http://localhost:3000/songs/2
+
+
+### UPDATE SONG BY ID
+PATCH http://localhost:3000/songs/3
+Content-Type: application/json
+
+{
+    "title" : "LOVING ME"
+}
+
+
+### DELETE Song by id
+DELETE http://localhost:3000/songs/3

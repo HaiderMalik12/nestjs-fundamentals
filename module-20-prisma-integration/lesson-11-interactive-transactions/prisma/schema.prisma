@@ -1,0 +1,106 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Song {
+  id       Int     @id @default(autoincrement())
+  title    String
+  artist   Artist? @relation(fields: [artistId], references: [id])
+  artistId Int?
+}
+
+model Artist {
+  id    Int    @id @default(autoincrement())
+  name  String
+  songs Song[]
+}
+
+model User {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  profile Profile?
+}
+
+model Profile {
+  id     Int    @id @default(autoincrement())
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int    @unique
+  photo  String
+  phone  String
+}
+
+model Post {
+  id         Int                 @id @default(autoincrement())
+  title      String
+  categories CategoriesOnPosts[]
+}
+
+model Category {
+  id    Int                 @id @default(autoincrement())
+  name  String
+  posts CategoriesOnPosts[]
+}
+
+model CategoriesOnPosts {
+  post       Post     @relation(fields: [postId], references: [id])
+  postId     Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  asignedAt  DateTime @default(now())
+  assignedBy String
+
+  @@id([postId, categoryId])
+}
+
+// You have to create Customer, Address and the Application Model
+// One to one relation with Customer and Address
+// One to many relation with Customer and Application
+
+model Customer {
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  address      Address?      @relation(fields: [addressId], references: [id])
+  applications Application[]
+  addressId    Int?          @unique
+}
+
+model Address {
+  id       Int       @id @default(autoincrement())
+  zip      String?
+  city     String
+  country  String
+  Customer Customer?
+}
+
+enum APPLICATION_TYPE {
+  LOAN
+  CAR_FINANCING
+  BUSINESS_FINANCING
+}
+
+model Application {
+  id     Int              @id @default(autoincrement())
+  type   APPLICATION_TYPE @default(LOAN)
+  tenure String
+  amount Int
+
+  Customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId Int?
+}
+
+model Account {
+  id      Int    @id @default(autoincrement())
+  balance Float
+  title   String
+}

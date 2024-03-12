@@ -1,0 +1,10 @@
+### Create Song 
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+     "title": "Love me",
+    "releasedDate" : "2023-05-11",
+    "duration" :"02:33",
+    "lyrics": "1adas adsdasd asdasdasd qeqew"
+}

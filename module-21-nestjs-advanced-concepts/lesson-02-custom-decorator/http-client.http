@@ -1,0 +1,2 @@
+### FIND USER ON THE BASED ON ID
+GET http://localhost:3000/user/1

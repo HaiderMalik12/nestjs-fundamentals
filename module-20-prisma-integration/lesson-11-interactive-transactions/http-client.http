@@ -1,0 +1,172 @@
+### Create Song
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+    "title" : "Animals",
+    "artistId":1
+}
+
+### FETCH ALL SONGS
+
+GET http://localhost:3000/songs
+
+
+### FETCH SONG BY ID
+GET http://localhost:3000/songs/2
+
+
+### UPDATE SONG BY ID
+PATCH http://localhost:3000/songs/3
+Content-Type: application/json
+
+{
+    "title" : "LOVING ME"
+}
+
+
+### DELETE Song by id
+DELETE http://localhost:3000/songs/3
+
+### Create Artist
+POST http://localhost:3000/artists
+Content-Type: application/json
+
+{
+    "name" : "Avicci"
+}
+
+### Create User
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name" : "Jane Doe",
+    "photo": "some-api.com/photos/1.jpg",
+    "phone": "+9234344433"
+}
+
+### FETCH Users
+GET http://localhost:3000/users
+
+### Create POST
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "One to Many Relation",
+  "categories": {
+    "create": [
+      {
+        "assignedBy": "Jane",
+        "asignedAt": "2023-08-01T10:03:38.016Z",
+        "category": {
+          "create": {
+            "name": "Prisma"
+          }
+        }
+      },
+      {
+        "assignedBy": "Jane",
+        "asignedAt": "2023-08-01T10:03:38.016Z",
+        "category": {
+          "create": {
+            "name": "Nest.js"
+          }
+        }
+      }
+    ]
+  }
+}
+
+### Create Post with Existing categories
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "Transactions in Prisma",
+  "categories": {
+    "create": [
+      {
+        "assignedBy": "Bob",
+        "asignedAt": "2023-08-01T10:07:00.918Z",
+        "category": {
+          "connect": {
+            "id": 1
+          }
+        }
+      },
+      {
+        "assignedBy": "Bob",
+        "asignedAt": "2023-08-01T10:07:00.918Z",
+        "category": {
+          "connect": {
+            "id": 2
+          }
+        }
+      }
+    ]
+  }
+}
+
+### FETCH ALL THE POSTS WITH NEST.JS CATEGORY
+GET http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "categories": {
+    "some": {
+      "category": {
+        "name": "Nest.js"
+      }
+    }
+  }
+}
+
+### CREATE NEW APPLICATION
+POST http://localhost:3000/applications
+Content-Type: application/json
+
+{
+  "email": "jane1@gmail.com",
+  "name": "Jone Doe",
+  "address": {
+    "create": {
+      "city": "New York",
+      "country": "USA",
+      "zip": "34443"
+    }
+  },
+  "applications": {
+    "create": [
+      {
+        "amount": 32224,
+        "tenure": "5 Years",
+        "type": "BUSINESS_FINANCING"
+      }
+    ]
+  }
+}
+
+### SEQUENTIAL QUERY
+GET http://localhost:3000/sequential
+
+
+### Create Account
+POST http://localhost:3000/accounts
+Content-Type: application/json
+
+{
+  "title" : "Sam",
+  "balance" : 100
+}
+
+### Trasnfer Amount
+POST http://localhost:3000/accounts/transfer
+Content-Type: application/json
+
+{
+ "sender" :1,
+ "receiver" :2,
+ "amount": 20
+}

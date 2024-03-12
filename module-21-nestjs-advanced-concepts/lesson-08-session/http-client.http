@@ -1,0 +1,18 @@
+### FIND USER ON THE BASED ON ID
+GET http://localhost:3000/user/1
+
+### TEST COOKIE PARSER
+GET http://localhost:3000/set-cookie
+
+### GET COOKIE
+GET  http://localhost:3000/get-cookie
+
+### CONVERT .WAV FILE TO Mp3
+POST http://localhost:3000/audio/convert
+
+### TEST SESSION
+
+GET http://localhost:3000/login
+
+### USER PROFILE
+GET http://localhost:3000/profile

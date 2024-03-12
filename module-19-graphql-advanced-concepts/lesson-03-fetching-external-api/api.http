@@ -1,0 +1,31 @@
+### Create Song Endpoint
+POST http://localhost:3001/songs
+Content-Type: application/json
+
+{
+     "title": "Danza ",
+    "releasedDate" : "2023-05-11",
+    "duration" :"02:33",
+    "lyrics": "1adas adsdasd asdasdasd qeqew",
+    "album": "648097fd6535d2cff889633d"
+}
+
+
+### Find Songs
+GET http://localhost:3001/songs
+
+### Delete Song
+DELETE http://localhost:3001/songs/648047e39cd98439a21a741e
+
+
+### Create PlayList
+POST http://localhost:3001/albums
+Content-Type: application/json
+
+{
+    "title": "Dance Music",
+    "songs": ["648097fd6535d2cff889633d"]
+}
+
+### Find Albums
+GET http://localhost:3001/albums

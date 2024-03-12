@@ -1,0 +1,37 @@
+### Create Song
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+    "title" : "Animals",
+    "artistId":1
+}
+
+### FETCH ALL SONGS
+
+GET http://localhost:3000/songs
+
+
+### FETCH SONG BY ID
+GET http://localhost:3000/songs/2
+
+
+### UPDATE SONG BY ID
+PATCH http://localhost:3000/songs/3
+Content-Type: application/json
+
+{
+    "title" : "LOVING ME"
+}
+
+
+### DELETE Song by id
+DELETE http://localhost:3000/songs/3
+
+### Create Artist
+POST http://localhost:3000/artists
+Content-Type: application/json
+
+{
+    "name" : "Avicci"
+}
